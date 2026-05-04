@@ -1,4 +1,4 @@
-//===-- Implementation of iscanonicalbf16 function ------------------------===//
+//===-- Shared iscanonicalbf16 function -------------------------*- C++ -*-===//
 //
 // Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.
 // See https://llvm.org/LICENSE.txt for license information.
@@ -6,13 +6,18 @@
 //
 //===----------------------------------------------------------------------===//
 
-#include "src/math/iscanonicalbf16.h"
+#ifndef LLVM_LIBC_SHARED_MATH_ISCANONICALBF16_H
+#define LLVM_LIBC_SHARED_MATH_ISCANONICALBF16_H
+
+#include "shared/libc_common.h"
 #include "src/__support/math/iscanonicalbf16.h"
 
 namespace LIBC_NAMESPACE_DECL {
+namespace shared {
 
-LLVM_LIBC_FUNCTION(int, iscanonicalbf16, (bfloat16 x)) {
-  return math::iscanonicalbf16(x);
-}
+using math::iscanonicalbf16;
 
+} // namespace shared
 } // namespace LIBC_NAMESPACE_DECL
+
+#endif // LLVM_LIBC_SHARED_MATH_ISCANONICALBF16_H
